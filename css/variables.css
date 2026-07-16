@@ -1,0 +1,59 @@
+/* ==========================================================
+   variables.css — Design tokens & CSS custom properties
+   JCG Info Tech
+   ========================================================== */
+
+:root {
+  /* ── Colors ── */
+  --color-black:      #0a1628;
+  --color-dark:       #0f1e33;
+  --color-panel:      #162440;
+  --color-border:     rgba(0, 210, 180, 0.15);
+  --color-cyan:       #00d2b4;
+  --color-cyan-dim:   rgba(0, 210, 180, 0.12);
+  --color-cyan-mid:   rgba(0, 210, 180, 0.35);
+  --color-navy:       #1e3a5f;
+  --color-navy-light: #2a5298;
+  --color-amber:      #f5a623;
+  --color-white:      #e8edf2;
+  --color-muted:      #7a90a8;
+  --color-card-bg:    rgba(15, 30, 51, 0.90);
+
+  /* ── Typography ── */
+  --font-display:  'Syne', sans-serif;
+  --font-mono:     'Space Mono', monospace;
+  --font-body:     'DM Sans', sans-serif;
+
+  /* ── Font sizes (fluid) ── */
+  --text-xs:   0.72rem;
+  --text-sm:   0.82rem;
+  --text-base: 0.9rem;
+  --text-md:   1rem;
+  --text-lg:   1.05rem;
+
+  /* ── Spacing ── */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 7rem;
+
+  /* ── Layout ── */
+  --max-width:    1280px;
+  --page-padding: 5%;
+
+  /* ── Borders ── */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+
+  /* ── Transitions ── */
+  --transition-fast:   0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow:   0.5s ease;
+
+  /* ── Z-index ── */
+  --z-bg:  0;
+  --z-base: 1;
+  --z-nav:  100;
+}

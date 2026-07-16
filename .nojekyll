@@ -1,0 +1,4 @@
+# This file tells GitHub Pages to serve the site from the repo root.
+# No build step needed — this is a static site.
+# Once Pages is enabled in Settings → Pages → Branch: main / (root),
+# the site will be live at https://<your-username>.github.io/jcg-infotech/

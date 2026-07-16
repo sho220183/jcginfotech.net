@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 420" fill="none">
+  <!-- Animated circuit paths -->
+  <path stroke="#00d2b4" stroke-width="1" stroke-dasharray="8 4"
+        d="M50,50 H200 V150 H350 V50 H450">
+    <animate attributeName="stroke-dashoffset" from="0" to="-120" dur="6s" repeatCount="indefinite"/>
+  </path>
+  <path stroke="#00d2b4" stroke-width="1" stroke-dasharray="8 4"
+        d="M50,210 H150 V100 H280 V320 H450">
+    <animate attributeName="stroke-dashoffset" from="0" to="-120" dur="6s" begin="-2s" repeatCount="indefinite"/>
+  </path>
+  <path stroke="#00d2b4" stroke-width="1" stroke-dasharray="8 4"
+        d="M50,370 H180 V270 H380 V370 H450">
+    <animate attributeName="stroke-dashoffset" from="0" to="-120" dur="6s" begin="-4s" repeatCount="indefinite"/>
+  </path>
+  <path stroke="#00d2b4" stroke-width="1" stroke-dasharray="8 4" opacity="0.5"
+        d="M250,50 V420">
+    <animate attributeName="stroke-dashoffset" from="0" to="-120" dur="6s" begin="-1s" repeatCount="indefinite"/>
+  </path>
+  <!-- Junction dots -->
+  <circle cx="200" cy="150" r="4" fill="#00d2b4" opacity="0.8"/>
+  <circle cx="350" cy="50"  r="4" fill="#00d2b4" opacity="0.8"/>
+  <circle cx="150" cy="100" r="4" fill="#00d2b4" opacity="0.8"/>
+  <circle cx="280" cy="320" r="4" fill="#00d2b4" opacity="0.8"/>
+  <circle cx="180" cy="270" r="4" fill="#00d2b4" opacity="0.8"/>
+  <circle cx="380" cy="370" r="4" fill="#00d2b4" opacity="0.8"/>
+</svg>

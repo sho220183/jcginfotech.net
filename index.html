@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="JCG InfraTech — Consultoría IT, redes, programación y soporte técnico para empresas en Paraguay." />
+  <meta name="theme-color" content="#080c10" />
+
+  <title>JCG InfraTech — Soluciones Tecnológicas</title>
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jcginfotech.net.py/" />
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://jcginfotech.net.py/" />
+  <meta property="og:title"       content="JCG InfraTech — Soluciones Tecnológicas" />
+  <meta property="og:description" content="Consultoría IT, redes, programación y soporte técnico para empresas en Paraguay." />
+  <meta property="og:image"       content="https://jcginfotech.net.py/img/og-image.png" />
+  <meta property="og:locale"      content="es_PY" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="JCG InfraTech — Soluciones Tecnológicas" />
+  <meta name="twitter:description" content="Consultoría IT, redes, programación y soporte técnico para empresas en Paraguay." />
+  <meta name="twitter:image"       content="https://jcginfotech.net.py/img/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets (order matters) -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+</head>
+<body>
+
+  <!-- ── Background decorations ── -->
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════ -->
+  <nav role="navigation" aria-label="Navegación principal">
+    <a href="#hero" class="nav-logo" aria-label="JCG InfraTech — Inicio">
+      <img src="img/logo-white.png" alt="JCG InfraTech" class="nav-logo__img" />
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <a href="#contacto" class="nav-cta">Solicitar Consulta</a>
+  </nav>
+
+  <!-- ════════════════════════════════
+       HERO
+       ════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <p class="hero-tag">Soluciones tecnológicas empresariales</p>
+
+    <h1 id="hero-heading" class="hero-title">
+      Tecnología que<br>
+      <em>impulsa</em> tu<br>
+      <span class="outline">negocio</span>
+    </h1>
+
+    <p class="hero-desc">
+      Consultoría IT, infraestructura de redes, desarrollo a medida y soporte técnico
+      especializado. Todo lo que tu empresa necesita para operar con eficiencia digital.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#servicios" class="btn-primary">Ver Servicios</a>
+      <a href="#contacto" class="btn-secondary">Hablar con un experto →</a>
+    </div>
+
+    <div class="hero-stats" aria-label="Estadísticas de la empresa">
+      <div class="stat-item">
+        <div class="stat-num">+<span>200</span></div>
+        <div class="stat-label">Proyectos realizados</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>98</span>%</div>
+        <div class="stat-label">Satisfacción del cliente</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">+<span>8</span></div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line"></div>
+      SCROLL
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       MARQUEE — Servicios highlight
+       ════════════════════════════════ -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Consultoría IT</span>
+      <span class="marquee-item">Redes y conectividad</span>
+      <span class="marquee-item">Desarrollo de software</span>
+      <span class="marquee-item">Soporte técnico</span>
+      <span class="marquee-item">Ciberseguridad</span>
+      <span class="marquee-item">Cloud computing</span>
+      <span class="marquee-item">Mantenimiento preventivo</span>
+      <span class="marquee-item">Infraestructura TI</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">Consultoría IT</span>
+      <span class="marquee-item">Redes y conectividad</span>
+      <span class="marquee-item">Desarrollo de software</span>
+      <span class="marquee-item">Soporte técnico</span>
+      <span class="marquee-item">Ciberseguridad</span>
+      <span class="marquee-item">Cloud computing</span>
+      <span class="marquee-item">Mantenimiento preventivo</span>
+      <span class="marquee-item">Infraestructura TI</span>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════
+       SERVICIOS
+       ════════════════════════════════ -->
+  <section id="servicios" aria-labelledby="servicios-heading">
+    <div class="header-row fade-up">
+      <div>
+        <p class="section-tag">// 01 — Lo que hacemos</p>
+        <h2 id="servicios-heading" class="section-title">Nuestros<br>Servicios</h2>
+      </div>
+      <p class="section-sub">
+        Soluciones integrales diseñadas para empresas que necesitan tecnología
+        confiable, escalable y bien soportada.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <article class="service-card fade-up">
+        <span class="service-num" aria-hidden="true">01</span>
+        <div class="service-icon" aria-hidden="true">🔍</div>
+        <h3 class="service-title">Consultoría IT</h3>
+        <p class="service-desc">
+          Analizamos tu infraestructura tecnológica y diseñamos una hoja de ruta estratégica
+          para optimizar procesos, reducir costos y escalar con seguridad.
+        </p>
+        <div class="service-tags">
+          <span class="tag">Auditoría TI</span>
+          <span class="tag">Estrategia Digital</span>
+          <span class="tag">Roadmap</span>
+        </div>
+      </article>
+
+      <article class="service-card fade-up">
+        <span class="service-num" aria-hidden="true">02</span>
+        <div class="service-icon" aria-hidden="true">🌐</div>
+        <h3 class="service-title">Redes &amp; Infraestructura</h3>
+        <p class="service-desc">
+          Diseño, implementación y mantenimiento de redes LAN/WAN, Wi-Fi corporativo,
+          VPN, switches, firewalls y toda la infraestructura de conectividad.
+        </p>
+        <div class="service-tags">
+          <span class="tag">LAN / WAN</span>
+          <span class="tag">Firewall</span>
+          <span class="tag">VPN</span>
+          <span class="tag">Wi-Fi</span>
+        </div>
+      </article>
+
+      <article class="service-card fade-up">
+        <span class="service-num" aria-hidden="true">03</span>
+        <div class="service-icon" aria-hidden="true">💻</div>
+        <h3 class="service-title">Programación a Medida</h3>
+        <p class="service-desc">
+          Desarrollo de aplicaciones web, sistemas de gestión, automatizaciones y software
+          personalizado adaptado a los procesos únicos de tu empresa.
+        </p>
+        <div class="service-tags">
+          <span class="tag">Web App</span>
+          <span class="tag">ERP / CRM</span>
+          <span class="tag">Automatización</span>
+        </div>
+      </article>
+
+      <article class="service-card fade-up">
+        <span class="service-num" aria-hidden="true">04</span>
+        <div class="service-icon" aria-hidden="true">🛡️</div>
+        <h3 class="service-title">Soporte Técnico</h3>
+        <p class="service-desc">
+          Asistencia técnica presencial y remota, mantenimiento preventivo y correctivo
+          de equipos, servidores y periféricos. Respuesta rápida garantizada.
+        </p>
+        <div class="service-tags">
+          <span class="tag">Help Desk</span>
+          <span class="tag">Remoto</span>
+          <span class="tag">Preventivo</span>
+        </div>
+      </article>
+
+      <article class="service-card fade-up">
+        <span class="service-num" aria-hidden="true">05</span>
+        <div class="service-icon" aria-hidden="true">☁️</div>
+        <h3 class="service-title">Cloud &amp; Servidores</h3>
+        <p class="service-desc">
+          Migración a la nube, configuración de servidores físicos y virtuales, backup
+          automatizado y gestión de entornos híbridos para mayor disponibilidad.
+        </p>
+        <div class="service-tags">
+          <span class="tag">AWS / Azure</span>
+          <span class="tag">Virtualización</span>
+          <span class="tag">Backup</span>
+        </div>
+      </article>
+
+      <article class="service-card fade-up">
+        <span class="service-num" aria-hidden="true">06</span>
+        <div class="service-icon" aria-hidden="true">🔒</div>
+        <h3 class="service-title">Ciberseguridad</h3>
+        <p class="service-desc">
+          Protección proactiva contra amenazas digitales, auditorías de seguridad, gestión
+          de accesos, antivirus corporativo y planes de recuperación ante desastres.
+        </p>
+        <div class="service-tags">
+          <span class="tag">Antivirus</span>
+          <span class="tag">Pen Testing</span>
+          <span class="tag">DR Plan</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       PROCESO
+       ════════════════════════════════ -->
+  <section id="proceso" aria-labelledby="proceso-heading">
+    <div class="inner">
+
+      <div>
+        <p class="section-tag fade-up">// 02 — Cómo trabajamos</p>
+        <h2 id="proceso-heading" class="section-title fade-up">Proceso<br>claro y ágil</h2>
+        <p class="section-sub section-sub--spaced fade-up">
+          Sin tecnicismos confusos. Trabajamos de forma transparente para que siempre
+          sepas en qué punto está tu proyecto.
+        </p>
+
+        <ol class="process-steps" aria-label="Pasos del proceso de trabajo">
+          <li class="step fade-up">
+            <div class="step-num" aria-hidden="true">01</div>
+            <div class="step-content">
+              <h3 class="step-title">Diagnóstico inicial</h3>
+              <p class="step-desc">Evaluamos tu situación tecnológica actual, identificamos riesgos y oportunidades de mejora.</p>
+            </div>
+          </li>
+          <li class="step fade-up">
+            <div class="step-num" aria-hidden="true">02</div>
+            <div class="step-content">
+              <h3 class="step-title">Propuesta a medida</h3>
+              <p class="step-desc">Diseñamos una solución personalizada con alcance, tiempos y presupuesto definidos.</p>
+            </div>
+          </li>
+          <li class="step fade-up">
+            <div class="step-num" aria-hidden="true">03</div>
+            <div class="step-content">
+              <h3 class="step-title">Implementación</h3>
+              <p class="step-desc">Ejecutamos con mínima interrupción a tus operaciones, bajo estándares profesionales.</p>
+            </div>
+          </li>
+          <li class="step fade-up">
+            <div class="step-num" aria-hidden="true">04</div>
+            <div class="step-content">
+              <h3 class="step-title">Soporte continuo</h3>
+              <p class="step-desc">Acompañamiento post-implementación, monitoreo y soporte para mantener todo funcionando.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Circuit visual — inline SVG so CSS vars and animations work correctly -->
+      <div class="process-visual fade-up" aria-hidden="true">
+        <svg class="circuit-svg" viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg">
+          <path class="circuit-path" d="M50,50 H200 V150 H350 V50 H450" style="animation-delay:0s"/>
+          <path class="circuit-path" d="M50,210 H150 V100 H280 V320 H450" style="animation-delay:-2s"/>
+          <path class="circuit-path" d="M50,370 H180 V270 H380 V370 H450" style="animation-delay:-4s"/>
+          <path class="circuit-path" d="M250,50 V420" style="animation-delay:-1s; opacity:0.5"/>
+          <circle cx="200" cy="150" r="4" fill="var(--color-cyan)" opacity="0.8"/>
+          <circle cx="350" cy="50"  r="4" fill="var(--color-cyan)" opacity="0.8"/>
+          <circle cx="150" cy="100" r="4" fill="var(--color-cyan)" opacity="0.8"/>
+          <circle cx="280" cy="320" r="4" fill="var(--color-cyan)" opacity="0.8"/>
+          <circle cx="180" cy="270" r="4" fill="var(--color-cyan)" opacity="0.8"/>
+          <circle cx="380" cy="370" r="4" fill="var(--color-cyan)" opacity="0.8"/>
+        </svg>
+        <div class="center-badge">
+          <span class="center-badge-icon">⚙️</span>
+          <div class="center-badge-label">JCG InfraTech</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       NOSOTROS / TESTIMONIOS
+       ════════════════════════════════ -->
+  <section id="nosotros" aria-labelledby="nosotros-heading">
+    <div class="testimonios-header fade-up">
+      <p class="section-tag">// 03 — Quiénes somos</p>
+      <h2 id="nosotros-heading" class="section-title">Especialistas con<br>visión de negocio</h2>
+      <p class="section-sub">
+        En JCG InfraTech combinamos experiencia técnica profunda con comprensión del entorno
+        empresarial. No solo resolvemos problemas, los anticipamos.
+      </p>
+    </div>
+
+    <div class="testimonios-grid" aria-label="Testimonios de clientes">
+
+      <blockquote class="testi-card fade-up">
+        <p class="testi-quote" aria-hidden="true">"</p>
+        <p class="testi-text">
+          JCG implementó toda nuestra red corporativa en tiempo récord. Su equipo fue
+          profesional y el soporte post-instalación ha sido impecable.
+        </p>
+        <footer class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">3P</div>
+          <div>
+            <cite class="testi-name">Gabriela Aveiro</cite>
+            <p class="testi-role">Gerente — 3 Pilares SRL</p>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="testi-card fade-up">
+        <p class="testi-quote" aria-hidden="true">"</p>
+        <p class="testi-text">
+          El sistema de gestión que desarrollaron automatizó procesos que antes nos tomaban
+          horas. Excelente trabajo y comunicación constante.
+        </p>
+        <footer class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">AL</div>
+          <div>
+            <cite class="testi-name">Ana López</cite>
+            <p class="testi-role">Directora General — Grupo Comercial ALC</p>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="testi-card fade-up">
+        <p class="testi-quote" aria-hidden="true">"</p>
+        <p class="testi-text">
+          Su consultoría nos ayudó a mejorar toda nuestra infraestructura local y en nube sin
+          interrumpir operaciones. El mejor desempeño fue notable desde el primer mes.
+        </p>
+        <footer class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">CP</div>
+          <div>
+            <cite class="testi-name">Carlos Pinto</cite>
+            <p class="testi-role">CTO — Fintech Soluciones S.A.</p>
+          </div>
+        </footer>
+      </blockquote>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       CONTACTO
+       ════════════════════════════════ -->
+  <section id="contacto" aria-labelledby="contacto-heading">
+    <div class="contacto-header fade-up">
+      <p class="section-tag">// 04 — Contáctanos</p>
+      <h2 id="contacto-heading" class="section-title">¿Listo para dar el<br>siguiente paso?</h2>
+      <p class="section-sub">
+        Cuéntanos tu reto tecnológico. Te respondemos en menos de 24 horas con una propuesta sin compromisos.
+      </p>
+    </div>
+
+    <div class="contacto-layout">
+
+      <!-- Info cards -->
+      <div class="contact-info fade-up" aria-label="Información de contacto">
+        <div class="contact-card">
+          <div class="contact-card-icon" aria-hidden="true">📞</div>
+          <div class="contact-card-title">Teléfono</div>
+          <div class="contact-card-value">+595 981 575 856</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon" aria-hidden="true">✉️</div>
+          <div class="contact-card-title">Correo electrónico</div>
+          <div class="contact-card-value">jguerrero@jcginfotech.net.py</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon" aria-hidden="true">📍</div>
+          <div class="contact-card-title">Ubicación</div>
+          <div class="contact-card-value">Lambaré, Paraguay</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon" aria-hidden="true">⏱️</div>
+          <div class="contact-card-title">Disponibilidad</div>
+          <div class="contact-card-value">Lun–Vie 08:00–18:00</div>
+        </div>
+      </div>
+
+      <!-- Formspree contact form -->
+      <!-- IMPORTANTE: reemplazar YOUR_FORM_ID con el ID de tu formulario en formspree.io -->
+      <form
+        class="contact-form fade-up"
+        action="https://formspree.io/f/xreneqdl"
+        method="POST"
+        aria-label="Formulario de contacto"
+        id="contact-form"
+      >
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              class="form-input"
+              placeholder="Tu nombre"
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="empresa" class="form-label">Empresa</label>
+            <input
+              type="text"
+              id="empresa"
+              name="empresa"
+              class="form-input"
+              placeholder="Nombre de tu empresa"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="correo@empresa.com"
+            required
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="servicio" class="form-label">Servicio de interés</label>
+          <select id="servicio" name="servicio" class="form-input form-select">
+            <option value="" disabled selected>Seleccioná un servicio</option>
+            <option value="consultoria">Consultoría IT</option>
+            <option value="redes">Redes &amp; Infraestructura</option>
+            <option value="desarrollo">Programación a medida</option>
+            <option value="soporte">Soporte técnico</option>
+            <option value="cloud">Cloud &amp; Servidores</option>
+            <option value="seguridad">Ciberseguridad</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje" class="form-label">Mensaje</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            class="form-input form-textarea"
+            placeholder="Contanos brevemente tu necesidad o proyecto..."
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Honeypot anti-spam (oculto) -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <!-- Redirect después del envío -->
+        <input type="hidden" name="_next" value="https://jcginfotech.net.py/?enviado=1" />
+
+        <button type="submit" class="form-submit">
+          <span class="form-submit__text">Enviar consulta</span>
+          <span class="form-submit__arrow" aria-hidden="true">→</span>
+        </button>
+
+        <!-- Mensajes de estado -->
+        <p class="form-success" role="alert" aria-live="polite" hidden>
+          ✅ ¡Mensaje enviado! Te contactamos en menos de 24 horas.
+        </p>
+        <p class="form-error" role="alert" aria-live="polite" hidden>
+          ❌ Hubo un error al enviar. Intentá de nuevo o escribinos directamente.
+        </p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       FOOTER
+       ════════════════════════════════ -->
+  <footer role="contentinfo">
+    <a href="#hero" class="footer-logo" aria-label="JCG InfraTech — Volver al inicio">
+      <img src="img/logo-white.png" alt="JCG InfraTech" class="footer-logo__img" />
+    </a>
+
+    <ul class="footer-links" aria-label="Navegación del pie de página">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <p class="footer-copy">© 2026 JCG InfraTech — Todos los derechos reservados</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>
