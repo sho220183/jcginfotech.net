@@ -42,6 +42,21 @@
   <link rel="stylesheet" href="css/hero.css" />
   <link rel="stylesheet" href="css/sections.css" />
   <link rel="stylesheet" href="css/whatsapp.css" />
+  <!-- Google Tag (gtag.js) - Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9TSNGM25P"></script>
+  <script>
+    // Inicialización de la capa de datos (dataLayer)
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    // Establece la fecha actual para el registro
+    gtag('js', new Date());
+
+    // Reemplaza "G-XXXXXXXXXX" con tu ID de medición real de Google Analytics
+    gtag('config', 'G-E9TSNGM25P', {
+      'send_page_view': true // Registra la visita automáticamente al cargar la página
+    });
+  </script>
 </head>
 <body>
 
@@ -557,6 +572,26 @@
   </a>
 
   <script src="js/main.js" defer></script>
+  <!-- Seguimiento de eventos personalizados para JCG InfraTech -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Busca el enlace a WhatsApp en la página
+      var whatsappBtn = document.querySelector('a[href*="wa.me"]');
 
+      if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', function () {
+          // Envía el evento a Google Analytics cuando se hace clic
+          if (typeof gtag === 'function') {
+            gtag('event', 'clic_whatsapp', {
+              'event_category': 'Contacto',
+              'event_label': 'Botón Flotante WhatsApp',
+              'value': 1
+            });
+            console.log('Evento de WhatsApp enviado con éxito.');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
