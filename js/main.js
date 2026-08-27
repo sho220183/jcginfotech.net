@@ -1,54 +1,49 @@
 /* ==========================================================
-   main.js — Scroll animations & mobile nav toggle
-   JCG Info Tech
+   main.js — Scroll animations, mobile nav, form, WhatsApp
+   JCG InfraTech
    ========================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── Fade-up on scroll (Intersection Observer) ── */
-  const observer = new IntersectionObserver((entries) => {
+  /* ── 1. Fade-up on scroll ── */
+  const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Small stagger so sibling elements don't all fire at once
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 80);
-        observer.unobserve(entry.target);
+        setTimeout(() => entry.target.classList.add('visible'), 80);
+        fadeObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  document.querySelectorAll('.fade-up').forEach((el) => fadeObserver.observe(el));
 
-  /* ── Mobile nav toggle ── */
-  const toggle = document.querySelector('.nav-toggle');
+  /* ── 2. Mobile nav toggle ── */
+  const toggle   = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
 
   if (toggle && navLinks) {
     toggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
-
-      // ARIA state
       toggle.setAttribute('aria-expanded', isOpen);
       toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
 
-      // Animate hamburger → X
       const spans = toggle.querySelectorAll('span');
       if (isOpen) {
-        spans[0].style.transform = 'translateY(7px) rotate(45deg)';
-        spans[1].style.opacity   = '0';
-        spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+        spans[0].style.transform  = 'translateY(7px) rotate(45deg)';
+        spans[1].style.opacity    = '0';
+        spans[2].style.transform  = 'translateY(-7px) rotate(-45deg)';
       } else {
-        spans[0].style.transform = '';
-        spans[1].style.opacity   = '';
-        spans[2].style.transform = '';
+        spans[0].style.transform  = '';
+        spans[1].style.opacity    = '';
+        spans[2].style.transform  = '';
       }
     });
 
-    // Close menu when a link is clicked
     navLinks.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menú');
         toggle.querySelectorAll('span').forEach((s) => {
           s.style.transform = '';
           s.style.opacity   = '';
@@ -57,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ── Smooth active-link highlight on scroll ── */
-  const sections = document.querySelectorAll('section[id]');
+  /* ── 3. Active nav link on scroll ── */
+  const sections   = document.querySelectorAll('section[id]');
   const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -76,9 +71,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach((s) => sectionObserver.observe(s));
 
-});
+  /* ── 4. WhatsApp badge — hide after click (cookie) ── */
+  const waBadge = document.querySelector('.whatsapp-badge');
+  const waLink  = document.querySelector('.whatsapp-float');
 
-  /* ── Formspree AJAX submission ── */
+  if (waBadge && waLink) {
+    // Check if user already clicked WA before
+    const waSeen = localStorage.getItem('wa_badge_seen');
+    if (waSeen) {
+      waBadge.style.display = 'none';
+    }
+
+    waLink.addEventListener('click', () => {
+      localStorage.setItem('wa_badge_seen', '1');
+      waBadge.style.display = 'none';
+    });
+  }
+
+  /* ── 5. Formspree AJAX submission ── */
   const form = document.getElementById('contact-form');
   if (form) {
     const successMsg = form.querySelector('.form-success');
@@ -88,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Visual loading state
       submitBtn.disabled = true;
       submitBtn.querySelector('.form-submit__text').textContent = 'Enviando...';
 
@@ -104,11 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
           successMsg.hidden = false;
           errorMsg.hidden   = true;
           submitBtn.querySelector('.form-submit__text').textContent = '¡Enviado!';
-          // Reset button after 4s
           setTimeout(() => {
             submitBtn.disabled = false;
             submitBtn.querySelector('.form-submit__text').textContent = 'Enviar consulta';
-          }, 4000);
+            successMsg.hidden = true;
+          }, 5000);
         } else {
           throw new Error('server error');
         }
@@ -120,3 +129,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+});
