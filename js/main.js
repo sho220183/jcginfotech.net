@@ -85,6 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
     waLink.addEventListener('click', () => {
       localStorage.setItem('wa_badge_seen', '1');
       waBadge.style.display = 'none';
+      // GA4 — click en WhatsApp
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'whatsapp_click', { event_category: 'contacto', event_label: 'boton_flotante' });
+      }
     });
   }
 
@@ -113,6 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
           successMsg.hidden = false;
           errorMsg.hidden   = true;
           submitBtn.querySelector('.form-submit__text').textContent = '¡Enviado!';
+          // GA4 — formulario enviado
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'form_submit', { event_category: 'contacto', event_label: 'formulario_web' });
+          }
           setTimeout(() => {
             submitBtn.disabled = false;
             submitBtn.querySelector('.form-submit__text').textContent = 'Enviar consulta';
