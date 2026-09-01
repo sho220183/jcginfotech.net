@@ -1,10 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <!-- Badge rectangle -->
-  <rect x="0" y="4" width="46" height="32" rx="3" stroke="#00d2b4" stroke-width="1.5" fill="none"/>
-  <!-- JCG text -->
-  <text x="23" y="27" font-family="Space Mono, monospace" font-size="14" font-weight="700"
-        fill="#00d2b4" text-anchor="middle">JCG</text>
-  <!-- Info Tech text -->
-  <text x="56" y="27" font-family="Syne, sans-serif" font-size="16" font-weight="800"
-        fill="#e8edf2" text-anchor="start" letter-spacing="-0.5">Info Tech</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 160" fill="none" role="img" aria-label="JCG InfraTech">
+
+  <!-- ── ESCUDO ── -->
+  <g transform="translate(10, 8)">
+
+    <!-- Contorno del escudo -->
+    <path
+      d="M71 4 C71 4 38 16 12 14 L12 72 C12 108 38 136 71 148 C104 136 130 108 130 72 L130 14 C104 16 71 4 71 4Z"
+      stroke="#1a3d53"
+      stroke-width="6"
+      stroke-linejoin="round"
+      fill="none"
+    />
+
+    <!-- Nodo superior -->
+    <circle cx="71" cy="38" r="5" fill="#1a3d53"/>
+    <!-- Nodo izquierdo -->
+    <circle cx="50" cy="60" r="5" fill="#1a3d53"/>
+    <!-- Nodo derecho -->
+    <circle cx="92" cy="60" r="5" fill="#1a3d53"/>
+
+    <!-- Línea vertical central -->
+    <line x1="71" y1="43" x2="71" y2="85" stroke="#1a3d53" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Línea izquierda curva -->
+    <path d="M50 65 L50 80 Q50 86 56 86 L71 86" stroke="#1a3d53" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Línea derecha curva -->
+    <path d="M92 65 L92 80 Q92 86 86 86 L71 86" stroke="#1a3d53" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- JCG dentro del escudo -->
+    <text x="71" y="120" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#1a3d53" text-anchor="middle" letter-spacing="3">JCG</text>
+
+  </g>
+
+  <!-- JCG grande -->
+  <text x="165" y="72" font-family="Arial,Helvetica,sans-serif" font-size="58" font-weight="800" fill="#1a3d53" letter-spacing="-1">JCG</text>
+
+  <!-- InfraTech -->
+  <text x="167" y="118" font-family="Arial,Helvetica,sans-serif" font-size="44" font-weight="700" fill="#1a3d53" letter-spacing="-0.5">InfraTech</text>
+
 </svg>

@@ -119,14 +119,12 @@ nav {
   }
 }
 
-/* ── Logo image ── */
+/* ── Logo image — SVG vectorial ── */
 .nav-logo__img {
   height: 85px;
   width: auto;
   display: block;
   opacity: 0.95;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
   transition: opacity var(--transition-fast);
 }
 
@@ -137,7 +135,7 @@ nav {
 /* ── Logo inversion for light mode ── */
 [data-theme="light"] .nav-logo__img,
 [data-theme="light"] .footer-logo__img {
-  filter: invert(1) sepia(1) saturate(2) hue-rotate(170deg) brightness(0.4);
+  filter: brightness(0) saturate(100%) invert(18%) sepia(30%) saturate(600%) hue-rotate(175deg) brightness(90%);
 }
 
 /* ── Theme toggle button ── */
