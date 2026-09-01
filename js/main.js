@@ -5,6 +5,44 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ── 0. Tema claro / oscuro ── */
+  const html         = document.documentElement;
+  const themeBtn     = document.getElementById('theme-toggle');
+  const STORAGE_KEY  = 'jcg_theme';
+
+  const getSystemTheme = () =>
+    window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+
+  const applyTheme = (theme) => {
+    // Animación suave
+    html.classList.add('theme-transitioning');
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+    if (themeBtn) {
+      themeBtn.textContent  = theme === 'dark' ? '☀️' : '🌙';
+      themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+    }
+    setTimeout(() => html.classList.remove('theme-transitioning'), 400);
+  };
+
+  // Leer preferencia guardada o usar la del sistema
+  const saved = localStorage.getItem(STORAGE_KEY);
+  applyTheme(saved || getSystemTheme());
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme') || 'dark';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  // Sincronizar si el usuario cambia la preferencia del sistema
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      applyTheme(e.matches ? 'light' : 'dark');
+    }
+  });
+
   /* ── 1. Fade-up on scroll ── */
   const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

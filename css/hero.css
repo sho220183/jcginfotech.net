@@ -51,7 +51,7 @@
 }
 
 .hero-title .outline {
-  -webkit-text-stroke: 1px var(--color-white);
+  -webkit-text-stroke: 1px var(--outline-stroke);
   color: transparent;
 }
 

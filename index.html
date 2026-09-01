@@ -86,6 +86,15 @@
   }
   </script>
 
+  <!-- Anti-flash: aplicar tema antes de renderizar -->
+  <script>
+    (function(){
+      var t=localStorage.getItem('jcg_theme')||
+        (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+      document.documentElement.setAttribute('data-theme',t);
+    })();
+  </script>
+
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9TSNGM25P"></script>
   <script>
@@ -143,6 +152,8 @@
       <span></span>
       <span></span>
     </button>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">🌙</button>
 
     <a href="#contacto" class="nav-cta">Solicitar Consulta</a>
   </nav>

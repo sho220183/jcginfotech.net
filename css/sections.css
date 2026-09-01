@@ -48,6 +48,16 @@
   to   { transform: translateX(-50%); }
 }
 
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* ══════════════════════════════════
    SERVICIOS
    ══════════════════════════════════ */

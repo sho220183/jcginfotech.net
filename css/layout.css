@@ -10,8 +10,8 @@
   inset: 0;
   z-index: var(--z-bg);
   background-image:
-    linear-gradient(rgba(0, 210, 180, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 210, 180, 0.04) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
@@ -28,7 +28,7 @@
 .orb-1 {
   width: 700px;
   height: 700px;
-  background: rgba(30, 58, 95, 0.5);  /* Navy glow */
+  background: var(--orb-1-color);
   top: -250px;
   left: -200px;
 }
@@ -36,7 +36,7 @@
 .orb-2 {
   width: 500px;
   height: 500px;
-  background: rgba(0, 210, 180, 0.06); /* Cyan accent glow */
+  background: var(--orb-2-color);
   bottom: -100px;
   right: -100px;
 }
