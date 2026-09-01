@@ -449,12 +449,19 @@ footer {
   z-index: var(--z-base);
   border-top: 1px solid var(--color-border);
   background: var(--color-dark);
-  padding: 3rem var(--page-padding);
+  padding: 2.5rem var(--page-padding) 1.5rem;
+}
+
+/* ── Fila superior ── */
+.footer-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .footer-logo {
@@ -488,6 +495,48 @@ footer {
   color: var(--color-cyan);
 }
 
+/* ── CTA contacto directo ── */
+.footer-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-cta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color var(--transition-fast);
+  min-height: 44px;            /* touch target */
+  padding: 0.5rem 0;
+}
+
+.footer-cta-item:hover {
+  color: var(--color-cyan);
+}
+
+.footer-cta-wa {
+  color: #25d366;
+}
+
+.footer-cta-wa:hover {
+  color: #1da851;
+}
+
+/* ── Fila inferior ── */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .footer-copy {
   color: var(--color-muted);
   font-family: var(--font-mono);
@@ -510,7 +559,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-  footer {
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -601,7 +656,8 @@ footer {
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 300;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem;       /* 44px táctil mínimo */
+  min-height: 44px;
   outline: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   border-radius: 0;
@@ -648,6 +704,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 48px;             /* área táctil generosa */
   gap: 0.8rem;
   background: var(--color-cyan);
   color: var(--color-black);
