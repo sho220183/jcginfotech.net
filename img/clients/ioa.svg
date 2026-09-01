@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none">
+  <rect width="200" height="80" rx="6" fill="#1a3a6b"/>
+  <text x="100" y="34" font-family="Georgia,serif" font-size="26" font-weight="700"
+        fill="#ffffff" text-anchor="middle" letter-spacing="4">IOA</text>
+  <line x1="30" y1="42" x2="170" y2="42" stroke="#ffffff" stroke-width="0.8" opacity="0.4"/>
+  <text x="100" y="58" font-family="Arial,sans-serif" font-size="7.5" font-weight="400"
+        fill="#a8c4e8" text-anchor="middle" letter-spacing="1.5">INSTITUTO DE ODONTOLOGÍA AVANZADA</text>
+</svg>

@@ -524,7 +524,7 @@ footer {
    FOOTER LOGO IMAGE
    ══════════════════════════════════ */
 .footer-logo__img {
-  height: 48px;
+  height: 64px;
   width: auto;
   display: block;
   opacity: 0.75;
@@ -729,4 +729,80 @@ footer {
   .contact-info {
     grid-template-columns: 1fr;
   }
+}
+
+/* ══════════════════════════════════
+   SERVICE ICONS — SVG sólido
+   ══════════════════════════════════ */
+.svc-svg {
+  color: var(--color-cyan);
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════
+   PROCESS VISUAL — Logo como fondo
+   ══════════════════════════════════ */
+.process-logo-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.process-logo-img {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+  opacity: 0.06;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+}
+
+[data-theme="light"] .process-logo-img {
+  filter: brightness(0);
+  opacity: 0.05;
+}
+
+.center-badge {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.center-badge-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+
+.center-badge-sub {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════
+   TESTIMONIOS — Logo de cliente
+   ══════════════════════════════════ */
+.testi-client-logo {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.testi-client-logo img {
+  height: 100%;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  border-radius: 6px;
 }
