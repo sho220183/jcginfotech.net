@@ -147,3 +147,59 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ══════════════════════════════════
+   MEJORAS VISUALES — polish pass
+   ══════════════════════════════════ */
+
+/* Línea de acento lateral en secciones impares */
+#servicios,
+#nosotros {
+  position: relative;
+}
+
+#servicios::after,
+#nosotros::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--color-cyan) 30%,
+    var(--color-cyan) 70%,
+    transparent 100%
+  );
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Números de sección flotantes — estilo editorial */
+.section-tag::before {
+  display: none; /* limpiamos el pseudo anterior */
+}
+
+/* Mejora de sombra en cards hover */
+.service-card:hover {
+  background: var(--color-panel);
+  box-shadow: inset 0 0 40px rgba(0, 210, 180, 0.04);
+}
+
+/* Focus visible para accesibilidad — teclado */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Cursor pointer en tarjetas de servicio */
+.service-card {
+  cursor: default;
+}
+
+/* Scroll suave para todo el documento */
+html {
+  scroll-padding-top: 100px; /* compensa el nav fijo al hacer anchor scroll */
+}

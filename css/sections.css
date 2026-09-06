@@ -72,10 +72,58 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--color-border);
   border: 1px solid var(--color-border);
+}
+
+/* Card 07 — CCTV — spans full row width on last position */
+.service-card--featured {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  column-gap: 2rem;
+}
+
+.service-card--featured .service-num {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.service-card--featured .service-icon {
+  grid-column: 1;
+  grid-row: 2;
+  margin-bottom: 0;
+  align-self: start;
+}
+
+.service-card--featured .service-title {
+  grid-column: 2;
+  grid-row: 1 / 2;
+  align-self: end;
+}
+
+.service-card--featured .service-desc {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.service-card--featured .service-tags {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card--featured {
+    grid-column: span 1;
+    display: block;
+  }
 }
 
 /* ── Service card ── */
@@ -860,4 +908,85 @@ footer {
   max-width: 160px;
   object-fit: contain;
   border-radius: 6px;
+}
+
+/* ══════════════════════════════════
+   POLISH — mejoras visuales globales
+   ══════════════════════════════════ */
+
+/* Testimonial cards — hover más expresivo */
+.testi-card:hover {
+  border-color: var(--color-cyan-mid);
+  transform: translateY(-3px);
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+/* Process steps — ícono de número con fondo al hover */
+.step:hover .step-num {
+  background: var(--color-cyan-dim);
+  color: var(--color-cyan);
+  border-color: var(--color-cyan);
+}
+
+/* Contact cards — transición completa */
+.contact-card {
+  transition: border-color var(--transition-normal),
+              transform var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+.contact-card:hover {
+  border-color: var(--color-cyan-mid);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 210, 180, 0.08);
+}
+
+/* Client logos en testimonios — escala al hover */
+.testi-client-logo img {
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  opacity: 0.85;
+}
+
+.testi-card:hover .testi-client-logo img {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+/* Nav link con underline animado */
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-cyan);
+  transition: width var(--transition-normal);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Mejora de tipografía — section title con gradiente en modo oscuro */
+[data-theme="dark"] .section-title,
+:root:not([data-theme="light"]) .section-title {
+  background: linear-gradient(135deg, var(--color-white) 60%, var(--color-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Servicios header row — descripción alineada */
+#servicios .header-row .section-sub {
+  max-width: 400px;
+}
+
+/* Banda de servicios — ítem con dot más visible */
+.marquee-item::before {
+  opacity: 0.8;
 }
