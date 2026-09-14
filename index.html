@@ -26,7 +26,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:site"        content="@jcginframtech" />
+  <!-- twitter:site omitido — verificar handle real antes de agregar -->
   <meta name="twitter:title"       content="JCG InfraTech — Soluciones Tecnológicas" />
   <meta name="twitter:description" content="Consultoría IT, redes, programación y soporte técnico para empresas en Paraguay." />
   <meta name="twitter:image"       content="https://jcginfotech.net.py/img/og-image.png" />
@@ -113,7 +113,14 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- preload del stylesheet de fuentes para reducir render-blocking en mobile -->
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  </noscript>
 
   <!-- Stylesheets (order matters) -->
   <link rel="stylesheet" href="css/variables.css" />
@@ -545,7 +552,9 @@
       </div>
 
       <!-- Formspree contact form -->
-      <!-- IMPORTANTE: reemplazar YOUR_FORM_ID con el ID de tu formulario en formspree.io -->
+      <!-- ⚠️  IMPORTANTE: reemplazar YOUR_FORM_ID con el ID real de formspree.io
+               El ID actual es un placeholder — el formulario NO enviará mensajes
+               hasta que sea reemplazado. Ver README.md para instrucciones.      -->
       <form
         class="contact-form fade-up"
         action="https://formspree.io/f/YOUR_FORM_ID"

@@ -1,0 +1,46 @@
+# netlify.toml — Configuración de Netlify
+# Documentación: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+# ── Headers de seguridad globales ──────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+
+    # Evita que el sitio sea embebido en iframes de otros dominios (clickjacking)
+    X-Frame-Options = "SAMEORIGIN"
+
+    # Fuerza MIME type declarado — evita sniffing de contenido
+    X-Content-Type-Options = "nosniff"
+
+    # Controla cuánta info de referencia se envía al navegar a otros sitios
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Habilita XSS protection en navegadores legacy
+    X-XSS-Protection = "1; mode=block"
+
+    # Permisos de APIs del navegador — solo lo que el sitio necesita
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+# ── Cache para assets estáticos ────────────────────────────────────────────
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ── Redirects ───────────────────────────────────────────────────────────────
+# Redirigir www → sin www (si aplica)
+# [[redirects]]
+#   from = "https://www.jcginfotech.net.py/*"
+#   to   = "https://jcginfotech.net.py/:splat"
+#   status = 301
+#   force  = true

@@ -1,6 +1,6 @@
-# JCG Info Tech — Landing Page
+# JCG InfraTech — Landing Page
 
-Sitio web estático de una página (landing) para **JCG Info Tech**, empresa de servicios informáticos y consultoría IT en Paraguay.
+Sitio web estático de una página (landing) para **JCG InfraTech**, empresa de servicios informáticos y consultoría IT en Paraguay.
 
 🌐 **Demo en vivo:** https://jcginfotech.net.py/
 
