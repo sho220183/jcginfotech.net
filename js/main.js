@@ -13,34 +13,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const getSystemTheme = () =>
     window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 
-  const applyTheme = (theme) => {
-    // Animación suave
-    html.classList.add('theme-transitioning');
-    html.setAttribute('data-theme', theme);
-    localStorage.setItem(STORAGE_KEY, theme);
-    if (themeBtn) {
-      themeBtn.textContent  = theme === 'dark' ? '☀️' : '🌙';
-      themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
-    }
-    setTimeout(() => html.classList.remove('theme-transitioning'), 400);
+  const storage = {
+    get: (k) => { try { return localStorage.getItem(k); } catch { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch { /* sin almacenamiento */ } },
   };
 
-  // Leer preferencia guardada o usar la del sistema
-  const saved = localStorage.getItem(STORAGE_KEY);
-  applyTheme(saved || getSystemTheme());
+  const applyTheme = (theme, animate = true) => {
+    if (animate) html.classList.add('theme-transitioning');
+    html.setAttribute('data-theme', theme);
+    if (themeBtn) {
+      themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+    }
+    if (animate) setTimeout(() => html.classList.remove('theme-transitioning'), 400);
+  };
+
+  // Solo se guarda la elección explícita; sin ella se sigue al sistema
+  applyTheme(storage.get(STORAGE_KEY) || getSystemTheme(), false);
 
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {
-      const current = html.getAttribute('data-theme') || 'dark';
-      applyTheme(current === 'dark' ? 'light' : 'dark');
+      const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      storage.set(STORAGE_KEY, next);
+      applyTheme(next);
     });
   }
 
-  // Sincronizar si el usuario cambia la preferencia del sistema
   window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-    if (!localStorage.getItem(STORAGE_KEY)) {
-      applyTheme(e.matches ? 'light' : 'dark');
-    }
+    if (!storage.get(STORAGE_KEY)) applyTheme(e.matches ? 'light' : 'dark');
   });
 
   /* ── 1. Fade-up on scroll ── */
@@ -98,9 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         navAnchors.forEach((a) => {
-          a.style.color = '';
           if (a.getAttribute('href') === `#${entry.target.id}`) {
-            a.style.color = 'var(--color-cyan)';
+            a.setAttribute('aria-current', 'location');
+          } else {
+            a.removeAttribute('aria-current');
           }
         });
       }
@@ -115,13 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (waBadge && waLink) {
     // Check if user already clicked WA before
-    const waSeen = localStorage.getItem('wa_badge_seen');
-    if (waSeen) {
+    if (storage.get('wa_badge_seen')) {
       waBadge.style.display = 'none';
     }
 
     waLink.addEventListener('click', () => {
-      localStorage.setItem('wa_badge_seen', '1');
+      storage.set('wa_badge_seen', '1');
       waBadge.style.display = 'none';
       // GA4 — click en WhatsApp
       if (typeof gtag !== 'undefined') {

@@ -7,11 +7,16 @@
   position: relative;
   z-index: var(--z-base);
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 var(--page-padding);
-  padding-top: 100px;
+  padding: 100px var(--page-padding) 6rem;
+}
+
+#hero > :not(.hero-scroll) {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Eyebrow tag ── */
@@ -37,7 +42,7 @@
 
 /* ── Main heading ── */
 .hero-title {
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: clamp(2.25rem, 10vw, 6.5rem);
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.03em;

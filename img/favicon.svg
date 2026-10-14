@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#080c10"/>
-  <rect x="2" y="2" width="28" height="28" rx="3" stroke="#00d2b4" stroke-width="1.5" fill="none"/>
-  <text x="16" y="22" font-family="Space Mono, monospace" font-size="11" font-weight="700"
-        fill="#00d2b4" text-anchor="middle">JCG</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="96" fill="#1c3a5c"/><g color="#ffffff" fill="currentColor" transform="translate(256 262) scale(1.12) translate(-155.5 -189)"><path d="M23 70 Q105 60 155.5 23.5 Q206 60 288 70 L288 195 C288 270 211 330 155.5 354 C100 330 23 270 23 195 Z" fill="none" stroke="currentColor" stroke-width="24" stroke-linejoin="round"/><g fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"><circle cx="156" cy="98" r="14"/><circle cx="98.5" cy="128" r="14"/><circle cx="212.5" cy="128" r="14"/><path d="M156 118 V192"/><path d="M98.5 148 V172 L119 192.5"/><path d="M212.5 148 V172 L192 192.5"/></g></g></svg>

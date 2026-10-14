@@ -20,22 +20,22 @@ nav {
 
 /* ── Logo ── */
 .nav-logo {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.3rem;
-  letter-spacing: -0.02em;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  padding: 0.35rem 0;
 }
 
-.nav-logo__badge {
-  color: var(--color-cyan);
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  border: 1px solid var(--color-cyan);
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-sm);
+.nav-logo__img {
+  display: block;
+  height: 52px;
+  width: auto;
+  aspect-ratio: 810 / 362;
+  color: var(--color-logo);
+  transition: opacity var(--transition-fast);
+}
+
+.nav-logo:hover .nav-logo__img {
+  opacity: 0.85;
 }
 
 /* ── Links ── */
@@ -53,7 +53,8 @@ nav {
   font-weight: 500;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a[aria-current] {
   color: var(--color-cyan);
 }
 
@@ -112,6 +113,14 @@ nav {
 
   .nav-toggle {
     display: flex;
+    order: 1;
+    padding: 10px;
+    margin-right: -10px;
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+    margin-right: 0.5rem;
   }
 
   .nav-cta {
@@ -119,23 +128,10 @@ nav {
   }
 }
 
-/* ── Logo image — SVG vectorial ── */
-.nav-logo__img {
-  height: 85px;
-  width: auto;
-  display: block;
-  opacity: 0.95;
-  transition: opacity var(--transition-fast);
-}
-
-.nav-logo:hover .nav-logo__img {
-  opacity: 1;
-}
-
-/* ── Logo inversion for light mode ── */
-[data-theme="light"] .nav-logo__img,
-[data-theme="light"] .footer-logo__img {
-  filter: brightness(0) saturate(100%) invert(18%) sepia(30%) saturate(600%) hue-rotate(175deg) brightness(90%);
+@media (max-width: 768px) {
+  .nav-logo__img {
+    height: 42px;
+  }
 }
 
 /* ── Theme toggle button ── */
@@ -143,16 +139,24 @@ nav {
   background: transparent;
   border: 1px solid var(--color-border);
   color: var(--color-muted);
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1rem;
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
   border-radius: var(--radius-sm);
   flex-shrink: 0;
+}
+
+.theme-toggle__moon,
+[data-theme="light"] .theme-toggle__sun {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle__moon {
+  display: block;
 }
 
 .theme-toggle:hover {

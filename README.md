@@ -25,9 +25,12 @@ jcg-infotech/
 │   └── main.js             ← Scroll animations + mobile nav + active link highlight
 │
 ├── img/
-│   ├── logo.svg            ← Logotipo vectorial
+│   ├── logo.svg            ← Logotipo vectorial (azul #1c3a5c, fondos claros)
+│   ├── logo-white.svg      ← Logotipo vectorial (blanco, fondos oscuros)
+│   ├── logo-mark.svg       ← Solo el escudo
+│   ├── logo.png            ← Logotipo PNG (datos estructurados / correo)
 │   ├── favicon.svg         ← Favicon SVG
-│   ├── og-image.png        ← Imagen para redes sociales (1200×630 px) — PENDIENTE CREAR
+│   ├── og-image.png        ← Imagen para redes sociales (1200×630 px)
 │   └── circuit.svg         ← Ilustración (referencia; se usa inline en el HTML)
 │
 ├── .gitignore
@@ -92,8 +95,9 @@ Buscar y reemplazar:
 ### Meta tags SEO (index.html `<head>`)
 Actualizar la URL en `og:url` y `canonical` con el dominio real.
 
-### Imagen OG (img/og-image.png)
-Crear una imagen de 1200×630 px para previsualización en redes sociales (ver `img/OG-IMAGE-README.md`).
+### Logo
+En la página el logo se dibuja con un sprite SVG inline (`#jcg-logo` en `index.html`) que toma el color del tema
+(`--color-logo` en `css/variables.css`). Los archivos de `img/` son para uso externo.
 
 ---
 
