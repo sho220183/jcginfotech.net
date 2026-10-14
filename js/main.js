@@ -109,12 +109,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach((s) => sectionObserver.observe(s));
 
-  /* ── 4. WhatsApp badge — hide after click (cookie) ── */
+  /* ── 4. Medición GA4 ── */
+  const track = (name, params = {}) => {
+    if (typeof gtag === 'function') gtag('event', name, params);
+  };
+
+  // Clics declarados en el HTML: data-track="evento" data-track-location="ubicación" [data-track-cta="nombre"]
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-track]');
+    if (!el) return;
+    const params = { link_location: el.dataset.trackLocation || 'desconocido' };
+    if (el.dataset.trackCta) params.cta_name = el.dataset.trackCta;
+    track(el.dataset.track, params);
+  });
+
+  // Recorrido: una vez por sección y visita (embudo servicios → contacto)
+  const seenSections = new Set();
+  const sectionViewObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !seenSections.has(entry.target.id)) {
+        seenSections.add(entry.target.id);
+        track('section_view', { section_name: entry.target.id });
+        sectionViewObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach((s) => { if (s.id !== 'hero') sectionViewObserver.observe(s); });
+
+  /* ── 5. WhatsApp badge — se oculta tras el primer clic ── */
   const waBadge = document.querySelector('.whatsapp-badge');
   const waLink  = document.querySelector('.whatsapp-float');
 
   if (waBadge && waLink) {
-    // Check if user already clicked WA before
     if (storage.get('wa_badge_seen')) {
       waBadge.style.display = 'none';
     }
@@ -122,22 +149,24 @@ document.addEventListener('DOMContentLoaded', () => {
     waLink.addEventListener('click', () => {
       storage.set('wa_badge_seen', '1');
       waBadge.style.display = 'none';
-      // GA4 — click en WhatsApp
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'whatsapp_click', { event_category: 'contacto', event_label: 'boton_flotante' });
-      }
     });
   }
 
-  /* ── 5. Formspree AJAX submission ── */
+  /* ── 6. Formspree AJAX submission ── */
   const form = document.getElementById('contact-form');
   if (form) {
     const successMsg = form.querySelector('.form-success');
     const errorMsg   = form.querySelector('.form-error');
     const submitBtn  = form.querySelector('.form-submit');
 
+    // Nombre propio: GA4 ya usa form_start/form_submit en la medición mejorada
+    form.addEventListener('focusin', () => {
+      track('lead_form_start', { form_name: 'contacto' });
+    }, { once: true });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const service = form.elements.servicio.value || 'sin_especificar';
 
       submitBtn.disabled = true;
       submitBtn.querySelector('.form-submit__text').textContent = 'Enviando...';
@@ -154,10 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
           successMsg.hidden = false;
           errorMsg.hidden   = true;
           submitBtn.querySelector('.form-submit__text').textContent = '¡Enviado!';
-          // GA4 — formulario enviado
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'form_submit', { event_category: 'contacto', event_label: 'formulario_web' });
-          }
+          track('generate_lead', { form_name: 'contacto', service });
           setTimeout(() => {
             submitBtn.disabled = false;
             submitBtn.querySelector('.form-submit__text').textContent = 'Enviar consulta';
@@ -166,7 +192,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           throw new Error('server error');
         }
-      } catch {
+      } catch (err) {
+        track('lead_form_error', { form_name: 'contacto', service, error_type: err.message === 'server error' ? 'servidor' : 'red' });
         errorMsg.hidden   = false;
         successMsg.hidden = true;
         submitBtn.disabled = false;
