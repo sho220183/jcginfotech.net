@@ -91,30 +91,13 @@
   fill: #fff;
 }
 
-/* ── Unread badge ── */
-.whatsapp-badge {
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 18px;
-  height: 18px;
-  background: #d92d20;
-  border-radius: 50%;
-  border: 2px solid var(--color-black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 700;
-  color: #fff;
-  z-index: 2;
-  animation: badgePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s both;
-}
-
-@keyframes badgePop {
-  from { transform: scale(0); }
-  to   { transform: scale(1); }
+/* ── Sin pulso para quien prefiere menos movimiento ── */
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-btn::before,
+  .whatsapp-btn::after {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 /* ── Responsive — más abajo en mobile para no tapar el teclado ── */

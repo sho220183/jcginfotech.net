@@ -171,7 +171,7 @@
 
 .service-card:hover .service-icon {
   border-color: var(--color-cyan);
-  background: rgba(0, 210, 180, 0.2);
+  background: color-mix(in srgb, var(--color-cyan) 20%, transparent);
 }
 
 .service-num {
@@ -180,7 +180,8 @@
   right: 2rem;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-border);
+  color: var(--color-muted);
+  opacity: 0.6;
   letter-spacing: 0.1em;
 }
 
@@ -525,11 +526,11 @@ body > footer {
 }
 
 .footer-cta-wa {
-  color: #25d366;
+  color: var(--color-wa);
 }
 
 .footer-cta-wa:hover {
-  color: #1da851;
+  color: var(--color-wa-hover);
 }
 
 /* ── Fila inferior ── */
@@ -589,6 +590,13 @@ body > footer {
 
 [data-theme="light"] #contacto {
   background: linear-gradient(135deg, rgba(30, 58, 95, 0.07) 0%, rgba(0, 117, 99, 0.05) 100%);
+}
+
+/* Sin JS no hay data-theme: seguir la preferencia del sistema */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) #contacto {
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.07) 0%, rgba(0, 117, 99, 0.05) 100%);
+  }
 }
 
 .contacto-header {
@@ -665,7 +673,7 @@ body > footer {
 
 .form-input:focus {
   border-color: var(--color-cyan);
-  box-shadow: 0 0 0 3px var(--color-cyan-dim);
+  box-shadow: 0 0 0 3px var(--color-cyan-mid);
 }
 
 .form-input:invalid:not(:placeholder-shown) {
@@ -725,7 +733,7 @@ body > footer {
 .form-submit:hover::after { transform: translateX(0); }
 
 .form-submit:hover {
-  background: #00f0cc;
+  background: var(--color-cyan-hover);
   transform: translateY(-1px);
   box-shadow: 0 10px 30px rgba(0, 210, 180, 0.2);
 }
@@ -865,24 +873,6 @@ body > footer {
 }
 
 /* ══════════════════════════════════
-   TESTIMONIOS — Logo de cliente
-   ══════════════════════════════════ */
-.testi-client-logo {
-  height: 52px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.testi-client-logo img {
-  height: 100%;
-  width: auto;
-  max-width: 160px;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-/* ══════════════════════════════════
    POLISH — mejoras visuales globales
    ══════════════════════════════════ */
 
@@ -898,17 +888,6 @@ body > footer {
   background: var(--color-cyan-dim);
   color: var(--color-cyan);
   border-color: var(--color-cyan);
-}
-
-/* Client logos en testimonios — escala al hover */
-.testi-client-logo img {
-  transition: opacity var(--transition-normal), transform var(--transition-normal);
-  opacity: 0.85;
-}
-
-.testi-card:hover .testi-client-logo img {
-  opacity: 1;
-  transform: scale(1.03);
 }
 
 /* Nav link con underline animado */

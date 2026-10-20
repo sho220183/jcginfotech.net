@@ -114,6 +114,10 @@ nav {
   .nav-toggle {
     display: flex;
     order: 1;
+    justify-content: center;
+    align-items: center;
+    min-width: 44px;
+    min-height: 44px;
     padding: 10px;
     margin-right: -10px;
   }

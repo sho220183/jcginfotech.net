@@ -204,7 +204,8 @@
   .hero-tag,
   .hero-title,
   .hero-desc,
-  .hero-actions {
+  .hero-actions,
+  .scroll-line {
     animation: none;
   }
 }

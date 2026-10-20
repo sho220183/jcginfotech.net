@@ -59,33 +59,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelector('.nav-links');
 
   if (toggle && navLinks) {
-    toggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
+    const setMenu = (isOpen) => {
+      navLinks.classList.toggle('open', isOpen);
       toggle.setAttribute('aria-expanded', isOpen);
       toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
 
       const spans = toggle.querySelectorAll('span');
-      if (isOpen) {
-        spans[0].style.transform  = 'translateY(7px) rotate(45deg)';
-        spans[1].style.opacity    = '0';
-        spans[2].style.transform  = 'translateY(-7px) rotate(-45deg)';
-      } else {
-        spans[0].style.transform  = '';
-        spans[1].style.opacity    = '';
-        spans[2].style.transform  = '';
+      spans[0].style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : '';
+      spans[1].style.opacity   = isOpen ? '0' : '';
+      spans[2].style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : '';
+    };
+
+    toggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+
+    // Escape y toque fuera del menú también lo cierran
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        setMenu(false);
+        toggle.focus();
       }
     });
 
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Abrir menú');
-        toggle.querySelectorAll('span').forEach((s) => {
-          s.style.transform = '';
-          s.style.opacity   = '';
-        });
-      });
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('open') && !e.target.closest('nav')) setMenu(false);
     });
   }
 
@@ -137,22 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach((s) => { if (s.id !== 'hero') sectionViewObserver.observe(s); });
 
-  /* ── 5. WhatsApp badge — se oculta tras el primer clic ── */
-  const waBadge = document.querySelector('.whatsapp-badge');
-  const waLink  = document.querySelector('.whatsapp-float');
-
-  if (waBadge && waLink) {
-    if (storage.get('wa_badge_seen')) {
-      waBadge.style.display = 'none';
-    }
-
-    waLink.addEventListener('click', () => {
-      storage.set('wa_badge_seen', '1');
-      waBadge.style.display = 'none';
-    });
-  }
-
-  /* ── 6. Formspree AJAX submission ── */
+  /* ── 5. Formspree AJAX submission ── */
   const form = document.getElementById('contact-form');
   if (form) {
     const successMsg = form.querySelector('.form-success');

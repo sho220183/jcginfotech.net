@@ -67,6 +67,28 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
+/* ── Saltar al contenido (visible solo con teclado) ── */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: calc(var(--z-nav) + 1);
+  background: var(--color-cyan);
+  color: var(--color-black);
+  font-family: var(--font-display);
+  font-weight: 700;
+  padding: 0.75rem 1.2rem;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+main:focus {
+  outline: none;
+}
+
 /* ── Buttons ── */
 button {
   cursor: pointer;
