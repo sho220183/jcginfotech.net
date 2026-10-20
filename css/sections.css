@@ -440,6 +440,7 @@
   color: var(--color-cyan);
   font-family: var(--font-mono);
   font-size: var(--text-sm);
+  font-style: normal;
   overflow-wrap: anywhere;
 }
 
