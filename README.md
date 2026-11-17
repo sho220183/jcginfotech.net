@@ -14,12 +14,8 @@ jcg-infotech/
 ├── index.html              ← Documento principal (HTML semántico + ARIA)
 │
 ├── css/
-│   ├── variables.css       ← Design tokens: colores, tipografía, espaciado, z-index
-│   ├── base.css            ← Reset CSS + estilos globales de elementos
-│   ├── layout.css          ← Grid de fondo, orbs, sección base, botones, animaciones
-│   ├── nav.css             ← Navbar fija (desktop + mobile hamburger)
-│   ├── hero.css            ← Sección hero
-│   └── sections.css        ← Marquee, servicios, proceso, testimonios, contacto, footer
+│   └── styles.css          ← Todo el CSS en un archivo, por bloques: tokens (colores, tipografía,
+│                              espaciado), base, layout, nav, hero, secciones y WhatsApp
 │
 ├── js/
 │   └── main.js             ← Scroll animations + mobile nav + active link highlight
@@ -80,7 +76,7 @@ Para usar tu dominio propio (`jcginfotech.net.py`):
 
 ## Personalización rápida
 
-### Colores (css/variables.css)
+### Colores (bloque de tokens al inicio de css/styles.css)
 ```css
 --color-cyan:  #00d2b4;   /* Acento principal */
 --color-amber: #f5a623;   /* Acento secundario */
@@ -97,7 +93,7 @@ Actualizar la URL en `og:url` y `canonical` con el dominio real.
 
 ### Logo
 En la página el logo se dibuja con un sprite SVG inline (`#jcg-logo` en `index.html`) que toma el color del tema
-(`--color-logo` en `css/variables.css`). Los archivos de `img/` son para uso externo.
+(`--color-logo` en los tokens de `css/styles.css`). Los archivos de `img/` son para uso externo.
 
 ---
 
