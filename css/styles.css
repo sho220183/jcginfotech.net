@@ -48,6 +48,13 @@
   /* ── Logo ── */
   --color-logo:       #f2f6fa;
 
+  /* ── Panel de marca (mismo azul del logo en ambos temas) ── */
+  --brand-panel:      #1c3a5c;
+  --brand-ink:        #f2f6fa;   /* 10.7:1 */
+  --brand-muted:      #b9cbdd;   /* 7:1 */
+  --brand-accent:     #00d2b4;   /* 6:1 */
+  --brand-line:       rgba(242, 246, 250, 0.14);
+
   /* ── Estado de error ── */
   --color-error:      #f56450;
 
@@ -500,7 +507,7 @@ html {
    JCG Info Tech
    ========================================================== */
 
-nav {
+body > nav {
   position: fixed;
   top: 0;
   width: 100%;
@@ -667,54 +674,32 @@ nav {
 
 
 /* ==========================================================
-   hero.css — Hero section
-   JCG Info Tech
+   Hero — inicio local con panel de marca
    ========================================================== */
 
 #hero {
   position: relative;
   z-index: var(--z-base);
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 100px var(--page-padding) 6rem;
+  padding: 128px var(--page-padding) 5.5rem;
 }
 
-#hero > :not(.hero-scroll) {
+.hero-grid {
   position: relative;
   z-index: 1;
-}
-
-/* ── Eyebrow tag ── */
-.hero-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-cyan);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 1.8rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
-  gap: 0.8rem;
+  max-width: var(--max-width);
 }
 
-.hero-tag::before {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: var(--color-cyan);
-}
-
-/* ── Main heading ── */
+/* ── Columna de texto ── */
 .hero-title {
-  font-size: clamp(2.25rem, 10vw, 6.5rem);
+  font-size: clamp(2.1rem, 4.3vw, 3.9rem);
   font-weight: 800;
-  line-height: 0.95;
+  line-height: 1.04;
   letter-spacing: -0.03em;
-  max-width: 800px;
+  text-wrap: balance;
   margin-bottom: 1.5rem;
 }
 
@@ -723,141 +708,199 @@ nav {
   color: var(--color-cyan);
 }
 
-.hero-title .outline {
-  -webkit-text-stroke: 1px var(--outline-stroke);
-  color: transparent;
-}
-
-/* ── Description ── */
 .hero-desc {
   color: var(--color-muted);
   font-size: var(--text-lg);
-  max-width: 520px;
+  max-width: 48ch;
   line-height: 1.7;
-  margin-bottom: 2.8rem;
+  margin-bottom: 2.2rem;
 }
 
-/* ── CTA row ── */
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+.hero-reach {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 440px;
 }
 
-/* ── Stats row ── */
-.hero-stats {
-  display: flex;
-  gap: 3rem;
-  margin-top: 5rem;
-  flex-wrap: wrap;
-}
-
-.stat-num {
-  font-family: var(--font-mono);
-  font-size: 2rem;
-  font-weight: 700;
+.reach-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 56px;
+  padding: 0.9rem 1.1rem;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
   color: var(--color-white);
-  line-height: 1;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
 }
 
-.stat-num span {
+.reach-row svg {
   color: var(--color-cyan);
 }
 
-.stat-label {
-  font-size: var(--text-xs);
-  color: var(--color-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-top: 0.3rem;
+.reach-label {
+  font-family: var(--font-display);
+  font-weight: 700;
 }
 
-/* ── Scroll hint ── */
-.hero-scroll {
-  position: absolute;
-  bottom: 2.5rem;
-  left: var(--page-padding);
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  color: var(--color-muted);
-  font-size: var(--text-xs);
+.reach-value {
   font-family: var(--font-mono);
-  letter-spacing: 0.1em;
+  font-size: var(--text-sm);
+  color: var(--color-cyan);
+  font-variant-numeric: tabular-nums;
 }
 
-.scroll-line {
-  width: 40px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-muted));
-  animation: scrollPulse 2s ease-in-out infinite;
+.reach-row--wa svg,
+.reach-row--wa .reach-value {
+  color: var(--color-wa);
 }
 
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 1;   }
+.reach-row:hover {
+  border-color: var(--color-cyan-mid);
+  transform: translateY(-2px);
 }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  /* Deja libre la zona del botón flotante de WhatsApp */
-  .hero-stats {
-    gap: 1.5rem;
-    padding-right: 4.5rem;
-  }
-
-  .hero-scroll {
-    display: none;
-  }
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.6rem;
+  margin-top: 2rem;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
 }
 
-/* ══════════════════════════════════
-   HERO — mejoras visuales
-   ══════════════════════════════════ */
-
-/* Gradiente sutil en la parte inferior del hero para transición suave */
-#hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, var(--color-black));
-  pointer-events: none;
-  z-index: 0;
+.hero-facts strong {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--color-white);
 }
 
-/* Stats con separador mejorado */
-.stat-item {
-  position: relative;
+/* ── Panel de marca: mismo azul del logo en ambos temas ── */
+.hero-brand {
+  background: var(--brand-panel);
+  color: var(--brand-ink);
+  border: 1px solid var(--brand-line);
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  box-shadow: 0 24px 60px -24px rgba(10, 22, 40, 0.55);
 }
 
-.stat-item + .stat-item::before {
-  content: '';
-  position: absolute;
-  left: -1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 36px;
-  width: 1px;
-  background: var(--color-border);
+.hero-brand__head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1.2rem;
+  align-items: center;
+  padding-bottom: 1.4rem;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid var(--brand-line);
 }
 
-/* Tag de eyebrow con animación de entrada */
-.hero-tag {
-  animation: fadeInLeft 0.8s ease both;
+.hero-mark {
+  grid-row: span 2;
+  display: block;
+  width: clamp(78px, 8vw, 104px);
+  height: auto;
+  aspect-ratio: 299 / 366;
+  color: var(--brand-ink);
 }
 
-.hero-title {
-  animation: fadeInLeft 0.8s ease 0.1s both;
+.hero-mark__trace,
+.hero-mark__signal {
+  color: var(--brand-accent);
 }
 
-.hero-desc {
-  animation: fadeInLeft 0.8s ease 0.2s both;
+.hero-mark__signal {
+  opacity: 0.6;
 }
 
-.hero-actions {
-  animation: fadeInLeft 0.8s ease 0.3s both;
+.hero-mark__signal > * {
+  stroke-dasharray: 0.12 1;
+  stroke-dashoffset: 1.12;
+  animation: heroSignal 3.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
+
+.hero-mark__signal > :nth-child(2) { animation-delay: 0.5s; }
+.hero-mark__signal > :nth-child(3) { animation-delay: 1s; }
+
+@keyframes heroSignal {
+  to { stroke-dashoffset: 0; }
+}
+
+.hero-brand__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  align-self: end;
+}
+
+.hero-brand__sub {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--brand-muted);
+  letter-spacing: 0.06em;
+  align-self: start;
+  margin-top: 0.35rem;
+}
+
+.hero-services {
+  display: grid;
+}
+
+.hero-services a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--brand-line);
+}
+
+.hero-services b {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.hero-services small {
+  grid-column: 1;
+  color: var(--brand-muted);
+  font-size: var(--text-sm);
+}
+
+.hero-services span {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: center;
+  color: var(--brand-accent);
+  font-size: 1.2rem;
+  transition: transform var(--transition-fast);
+}
+
+.hero-services a:hover span {
+  transform: translateX(4px);
+}
+
+.hero-services a:focus-visible {
+  outline-color: var(--brand-accent);
+}
+
+.hero-services .hero-services__all {
+  display: block;
+  border-bottom: 0;
+  padding-bottom: 0;
+  color: var(--brand-accent);
+  font-weight: 600;
+}
+
+/* ── Entrada ── */
+.hero-copy > * {
+  animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-copy > :nth-child(2) { animation-delay: 0.08s; }
+.hero-copy > :nth-child(3) { animation-delay: 0.16s; }
+.hero-copy > :nth-child(4) { animation-delay: 0.24s; }
 
 @keyframes fadeInLeft {
   from {
@@ -870,13 +913,57 @@ nav {
   }
 }
 
+/* Gradiente sutil al pie del hero */
+#hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--color-black));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-brand {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    padding-top: 104px;
+    padding-bottom: 4rem;
+  }
+
+  /* Deja libre la zona del botón flotante de WhatsApp */
+  .hero-reach {
+    padding-right: 4.25rem;
+  }
+
+  .reach-row {
+    grid-template-columns: auto 1fr;
+    row-gap: 0.1rem;
+  }
+
+  .reach-row svg {
+    grid-row: span 2;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-tag,
-  .hero-title,
-  .hero-desc,
-  .hero-actions,
-  .scroll-line {
+  .hero-copy > *,
+  .hero-mark__signal > * {
     animation: none;
+  }
+
+  .hero-mark__signal {
+    display: none;
   }
 }
 
@@ -1477,9 +1564,6 @@ body > footer {
     align-items: flex-start;
   }
 
-  .hero-stats {
-    gap: 1.5rem;
-  }
 }
 
 /* ══════════════════════════════════
